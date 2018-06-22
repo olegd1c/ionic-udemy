@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>library</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3 text-center> Select you favorite Quote</h3>
+  <ion-list>
+    <button 
+      ion-item 
+      *ngFor="let item of qoutes" 
+      [navPush]="qoutesPage"
+      [navParams] = "item"
+    >
+      <ion-icon [name]="item.icon" item-left></ion-icon>
+      <h2>{{item.category | uppercase}}</h2>
+      <p>{{item.quotes.length}} Qoutes</p>
+    </button>
+  </ion-list>
+</ion-content>

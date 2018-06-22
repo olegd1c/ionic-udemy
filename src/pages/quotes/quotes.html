@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{item.category | uppercase}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let qoute of item.quotes; let i=index;">
+    <ion-card-header text-center>
+      #{{i+1}}
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{qoute.text}}</p>
+      <p class="author">{{qoute.person}}</p>
+    </ion-card-content>
+    <ion-row>
+        <ion-col text-left>
+          <button ion-button small (click)="addToFavorite(qoute)" icon-only>
+            <ion-icon name="star"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>    
+  </ion-card>
+</ion-content>
