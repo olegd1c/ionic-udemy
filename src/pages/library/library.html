@@ -1,21 +1,26 @@
 <ion-header>
   <ion-navbar>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>library</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding (swipe)="swipe($event)">
   <h3 text-center> Select you favorite Quote</h3>
   <ion-list>
     <button 
       ion-item 
-      *ngFor="let item of qoutes" 
+      *ngFor="let item of qoutes"
       [navPush]="qoutesPage"
       [navParams] = "item"
     >
       <ion-icon [name]="item.icon" item-left></ion-icon>
       <h2>{{item.category | uppercase}}</h2>
-      <p>{{item.quotes.length}} Qoutes</p>
+      <p>{{item.quotes.length}} Quotes</p>
     </button>
   </ion-list>
 </ion-content>

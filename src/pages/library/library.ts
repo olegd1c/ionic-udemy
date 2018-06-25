@@ -17,4 +17,11 @@ export class LibraryPage  implements OnInit{
   ngOnInit() {
     this.qoutes = qouteData;
   }
+
+  swipe(event) {
+    if(event.direction === 4) {
+      console.log('4');
+      this.navCtrl.parent.select(0);
+    }
+  }
 }

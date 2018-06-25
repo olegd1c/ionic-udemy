@@ -23,33 +23,48 @@ export class QuotesPage implements OnInit {
   }
 
   /*
-  // add (?) in template  
+  // add (?) in template
   ionViewDidLoad() {
     this.item = this.navParams.data;
   }
   */
-
-  addToFavorite(qoute: Quote) {
+ 
+  addToFavorites(quote: Quote) {
     const alert = this.alertCtrl.create({
-      title: 'Add Qoute!',
+      title: 'Add Quote!',
       subTitle: 'Are you sure?',
-      message: 'Are you sure you want to add the qoute?',
+      message: 'Are you sure you want to add the quote?',
       buttons: [
         {
           text: 'Yes',
           handler: () => {
-            this.quotesService.addQouteToFavorites(qoute);
+            this.quotesService.addQuoteToFavorites(quote);
           }
         },
         {
           text: 'No',
           role: 'cancel',
           handler: () => {
-            console.log('No');
+
           }
         },
       ]
     });
     alert.present();
+  }
+
+  removeFromFavorites(quote: Quote) {
+    this.quotesService.removeQuoteFromFavorites(quote);
+  }
+
+  isFavorite(quote: Quote) {
+    return this.quotesService.isQuoteFavorite(quote);
+  }
+
+  swipe(event) {
+    if(event.direction === 4) {
+      console.log('4');
+      this.navCtrl.parent.select(1);
+    }
   }
 }

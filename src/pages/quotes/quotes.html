@@ -7,19 +7,29 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-card *ngFor="let qoute of item.quotes; let i=index;">
+<ion-content padding (swipe)="swipe($event)">
+  <ion-card *ngFor="let quote of item.quotes; let i=index;">
     <ion-card-header text-center>
       #{{i+1}}
     </ion-card-header>
     <ion-card-content>
-      <p>{{qoute.text}}</p>
-      <p class="author">{{qoute.person}}</p>
+      <p>{{quote.text}}</p>
+      <p class="author">{{quote.person}}</p>
     </ion-card-content>
     <ion-row>
         <ion-col text-left>
-          <button ion-button small (click)="addToFavorite(qoute)" icon-only>
+          <button ion-button small
+            (click)="addToFavorites(quote)"
+            icon-only
+            *ngIf="!isFavorite(quote)">
             <ion-icon name="star"></ion-icon>
+          </button>
+          <button ion-button small
+            (click)="removeFromFavorites(quote)"
+            icon-only
+            *ngIf="isFavorite(quote)"
+            >
+            <ion-icon name="trash"></ion-icon>
           </button>
         </ion-col>
       </ion-row>    

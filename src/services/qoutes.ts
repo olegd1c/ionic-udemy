@@ -1,22 +1,27 @@
 import { Quote } from '../pages/data/quote.inteface';
 
 export class QuotesService {
+
     private favoriteQoutes: Quote[] = [];
 
-    addQouteToFavorites(qoute: Quote) {
+    addQuoteToFavorites(qoute: Quote) {
         this.favoriteQoutes.push(qoute);
-        console.log(this.favoriteQoutes);
     }
 
-    removeQouteFromFavorites(qoute: Quote) {
+    removeQuoteFromFavorites(qoute: Quote) {
         const index = this.favoriteQoutes.findIndex((elem: Quote) => {
             return elem.id == qoute.id;
         })
         this.favoriteQoutes.splice(index);
     }
 
-    getFavoriteQoutes() {
-        console.log(this.favoriteQoutes.slice());
+    getFavoriteQuotes() {
         return this.favoriteQoutes.slice();
+    }
+
+    isQuoteFavorite(quote: Quote): any {
+        return this.favoriteQoutes.find((elem: Quote) => {
+            return elem.id == quote.id;
+        });
     }
 }
