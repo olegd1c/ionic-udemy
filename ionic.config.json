@@ -1,8 +1,6 @@
 {
-  "name": "ionic-udemy",
+  "name": "ionic2-course",
   "app_id": "",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
+  "v2": true,
+  "typescript": true
 }
