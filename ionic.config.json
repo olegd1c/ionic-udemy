@@ -1,8 +1,9 @@
 {
   "name": "ionic-udemy",
-  "app_id": "49cd4f71",
+  "app_id": "9be7584f",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "hooks": {}
 }
